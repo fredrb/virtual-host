@@ -23,8 +23,8 @@ app2.get('/', function(req, res){
 // app.use(vhost('atcore.co', require(process.env.CHAT_APP).app));
 
 
-app.use(vhost('app1.atcore.co', app1));
-app.use(vhost('app2.atcore.co', app2));
+app.use(vhost('chat.atcore.co', app1));
+app.use(vhost('api.atcore.co', app2));
 
 app.use(vhost('atcore.co', app1));
 
