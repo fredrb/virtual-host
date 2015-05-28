@@ -4,17 +4,6 @@ var vhost = require('vhost');
 
 var app = connect();
 
-var express = require('express');
-
-var app1 = express();
-app1.get('/', function(req, res){
-  res.end('This is app 1');
-});
-
-var app2 = express();
-app2.get('/', function(req, res){
-  res.end('This is app 2');
-})
 
 // use OS variables to find where the apps are located
 
@@ -22,11 +11,15 @@ app2.get('/', function(req, res){
 // app.use(vhost('chat.atcore.co', require(process.env.CHAT_APP).app));
 // app.use(vhost('atcore.co', require(process.env.CHAT_APP).app));
 
+// both gba and chat must be express application
+// for now this is hardcoded but consider change it to OS variables
+gba = require('/server/gba/server');
+chat = require('/server/chatastrofic/app');
 
-app.use(vhost('chat.atcore.co', app1));
-app.use(vhost('api.atcore.co', app2));
+app.use(vhost('gba.atcore.co', gba));
+app.use(vhost('chat.atcore.co', chat));
 
-app.use(vhost('atcore.co', app1));
+app.use(vhost('atcore.co', chat));
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
