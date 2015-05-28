@@ -6,7 +6,7 @@ var app = connect();
 
 // use OS variables to find where the apps are located
 
-app.use(vhost('gba.atcore.co', require(process.env.GBA_APP).app);
+app.use(vhost('gba.atcore.co', require(process.env.GBA_APP).app));
 app.use(vhost('chat.atcore.co', require(process.env.CHAT_APP).app));
 app.use(vhost('atcore.co', require(process.env.CHAT_APP).app));
 
