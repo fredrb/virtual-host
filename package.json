@@ -1,0 +1,8 @@
+{
+  "name": "subdomain-route",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.3.5",
+    "vhost": "^3.0.0"
+  }
+}
